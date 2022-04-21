@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Kanto Pokédex</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="body" onload="loadPokemon()">
+    <section class="header" id="header">
+        <nav class="header-nav">
+            <span class="yourpokedex-Span" style="font-size: 2.4rem; color: white;">
+                The Kanto Pokédex 
+            </span>
+            <input oninput="searchForPokemon()" id="searchPokemon" class="searchInput" placeholder="search your pokémon">
+        </nav>
+    </section>
+    <section>
+        <div id="pokedex">
+        </div>
+    </section>
+    <section id="clickedPokemon-SectionID" class="clickedPokemon-Section" style="display: none;"">
+    </section>
+    <section>
+        <figure onclick="playBackgroundSong()" class="pikachu-Container">
+            <img class="click-img" src="img/click.png">
+            <img class="pikachu-img" src="img/pikachu.jpg">
+        </figure>
+    </section>
+</body>
+</html>
