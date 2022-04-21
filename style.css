@@ -343,11 +343,11 @@ textarea:focus {
   background-color: yellowgreen;
 }
 
-.electro {
+.electric {
   background-color: rgb(226, 226, 27);
 }
 
-.fight {
+.fighting {
   background-color: rgb(255, 166, 0);
 }
 
@@ -355,7 +355,7 @@ textarea:focus {
   background-color: peru;
 }
 
-.psy {
+.psychic {
   background-color: rebeccapurple;
 }
 
@@ -368,7 +368,7 @@ textarea:focus {
 }
 
 .bug {
-  background-color: greenyellow;
+  background-color: rgb(100, 152, 22);
 }
 
 .normal {
@@ -424,5 +424,78 @@ textarea:focus {
 
   #body {
     position: absolute;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.loadingScreen__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  border: 4px solid rgb(254 215 3);
+
+  animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: rgb(254 215 3);
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
   }
 }

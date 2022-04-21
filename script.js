@@ -6,6 +6,8 @@ let allPokemon = [];
 
 async function loadPokemon() {
   let pokedexBody = document.getElementById("pokedex");
+  document.getElementById("pokedex").classList.add("d-none");
+
   pokedexBody.innerHTML = "";
 
   for (let i = 1; i <= 151; i++) {
@@ -16,9 +18,10 @@ async function loadPokemon() {
     pokedexBody.innerHTML += loadSinglePokemon(i);
 
     standardInfos(i);
-    firstType(i);
-    secondType(i);
+    setTypes(i);
   }
+  document.getElementById("pokedex").classList.remove("d-none");
+  document.getElementById("loadingScreen").classList.add("d-none");
 }
 
 /**
@@ -168,11 +171,12 @@ async function showPokemon(i) {
  */
 
 function enableValueFunctions(i) {
+  document.getElementById("searchPokemon").value = "";
+  searchForPokemon();
   clickSound();
   showSinglePokemon(i);
   standardInfosClicked(i);
-  firstTypeClicked(i);
-  secondTypeClicked(i);
+  setTypesClicked(i);
   showStats(i);
 }
 
@@ -268,355 +272,33 @@ function closeClickedPokemon() {
  * * Checks the different types of the pokemon and add the background color
  */
 
-function firstType(i) {
+setTypes = (i) => {
+  let typeOne = PokemonValues["types"][0]["type"]["name"];
+  document.getElementById(`type1(${i})`).classList.add(typeOne);
+  document.getElementById(`singlePokemon(${i})`).classList.add(typeOne);
   if (PokemonValues["types"].length == 1) {
     document.getElementById(`type2(${i})`).classList.add("d-none");
   }
 
-  let type1 = PokemonValues["types"][0]["type"]["name"];
-
-  if (type1 == "grass") {
-    document.getElementById(`type1(${i})`).classList.add("grass");
-    document.getElementById(`singlePokemon(${i})`).classList.add("grass");
-  }
-
-  if (type1 == "water") {
-    document.getElementById(`type1(${i})`).classList.add("water");
-    document.getElementById(`singlePokemon(${i})`).classList.add("water");
-  }
-
-  if (type1 == "fire") {
-    document.getElementById(`type1(${i})`).classList.add("fire");
-    document.getElementById(`singlePokemon(${i})`).classList.add("fire");
-  }
-
-  if (type1 == "poison") {
-    document.getElementById(`type1(${i})`).classList.add("poison");
-    document.getElementById(`singlePokemon(${i})`).classList.add("poison");
-  }
-
-  if (type1 == "normal") {
-    document.getElementById(`type1(${i})`).classList.add("normal");
-    document.getElementById(`singlePokemon(${i})`).classList.add("normal");
-  }
-
-  if (type1 == "electric") {
-    document.getElementById(`type1(${i})`).classList.add("electro");
-    document.getElementById(`singlePokemon(${i})`).classList.add("electro");
-  }
-
-  if (type1 == "flying") {
-    document.getElementById(`type1(${i})`).classList.add("flying");
-    document.getElementById(`singlePokemon(${i})`).classList.add("flying");
-  }
-
-  if (type1 == "bug") {
-    document.getElementById(`singlePokemon(${i})`).classList.add("bug");
-    document.getElementById(`type1(${i})`).classList.add("bug");
-  }
-
-  if (type1 == "dragon") {
-    document.getElementById(`singlePokemon(${i})`).classList.add("dragon");
-    document.getElementById(`type1(${i})`).classList.add("dragon");
-  }
-
-  if (type1 == "ice") {
-    document.getElementById(`singlePokemon(${i})`).classList.add("ice");
-    document.getElementById(`type1(${i})`).classList.add("ice");
-  }
-
-  if (type1 == "steel") {
-    document.getElementById(`singlePokemon(${i})`).classList.add("steel");
-    document.getElementById(`type1(${i})`).classList.add("steel");
-  }
-
-  if (type1 == "rock") {
-    document.getElementById(`singlePokemon(${i})`).classList.add("rock");
-    document.getElementById(`type1(${i})`).classList.add("rock");
-  }
-
-  if (type1 == "fairy") {
-    document.getElementById(`singlePokemon(${i})`).classList.add("fairy");
-    document.getElementById(`type1(${i})`).classList.add("fairy");
-  }
-
-  if (type1 == "psychic") {
-    document.getElementById(`singlePokemon(${i})`).classList.add("psy");
-    document.getElementById(`type1(${i})`).classList.add("psy");
-  }
-
-  if (type1 == "ground") {
-    document.getElementById(`singlePokemon(${i})`).classList.add("ground");
-    document.getElementById(`type1(${i})`).classList.add("ground");
-  }
-
-  if (type1 == "fighting") {
-    document.getElementById(`singlePokemon(${i})`).classList.add("fight");
-    document.getElementById(`type1(${i})`).classList.add("fight");
-  }
-}
-
-function firstTypeClicked(i) {
-  if (PokemonValuesClicked["types"].length == 1) {
-    document.getElementById(`type2-Clicked(${i})`).classList.add("d-none");
-  }
-
-  let tpye1Clicked = PokemonValuesClicked["types"][0]["type"]["name"];
-
-  if (tpye1Clicked == "grass") {
-    document.getElementById(`type1-Clicked(${i})`).classList.add("grass");
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("grass");
-  }
-
-  if (tpye1Clicked == "water") {
-    document.getElementById(`type1-Clicked(${i})`).classList.add("water");
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("water");
-  }
-
-  if (tpye1Clicked == "fire") {
-    document.getElementById(`type1-Clicked(${i})`).classList.add("fire");
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("fire");
-  }
-
-  if (tpye1Clicked == "poison") {
-    document.getElementById(`type1-Clicked(${i})`).classList.add("poison");
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("poison");
-  }
-
-  if (tpye1Clicked == "normal") {
-    document.getElementById(`type1-Clicked(${i})`).classList.add("normal");
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("normal");
-  }
-
-  if (tpye1Clicked == "electric") {
-    document.getElementById(`type1-Clicked(${i})`).classList.add("electro");
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("electro");
-  }
-
-  if (tpye1Clicked == "flying") {
-    document.getElementById(`type1-Clicked(${i})`).classList.add("flying");
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("flying");
-  }
-
-  if (tpye1Clicked == "bug") {
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("bug");
-    document.getElementById(`type1-Clicked(${i})`).classList.add("bug");
-  }
-
-  if (tpye1Clicked == "dragon") {
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("dragon");
-    document.getElementById(`type1-Clicked(${i})`).classList.add("dragon");
-  }
-
-  if (tpye1Clicked == "ice") {
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("ice");
-    document.getElementById(`type1-Clicked(${i})`).classList.add("ice");
-  }
-
-  if (tpye1Clicked == "steel") {
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("steel");
-    document.getElementById(`type1-Clicked(${i})`).classList.add("steel");
-  }
-
-  if (tpye1Clicked == "rock") {
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("rock");
-    document.getElementById(`type1-Clicked(${i})`).classList.add("rock");
-  }
-
-  if (tpye1Clicked == "fairy") {
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("fairy");
-    document.getElementById(`type1-Clicked(${i})`).classList.add("fairy");
-  }
-
-  if (tpye1Clicked == "psychic") {
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("psy");
-    document.getElementById(`type1-Clicked(${i})`).classList.add("psy");
-  }
-
-  if (tpye1Clicked == "ground") {
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("ground");
-    document.getElementById(`type1-Clicked(${i})`).classList.add("ground");
-  }
-
-  if (tpye1Clicked == "fighting") {
-    document
-      .getElementById(`clickedPokemon-SingleID(${i})`)
-      .classList.add("fight");
-    document.getElementById(`type1-Clicked(${i})`).classList.add("fight");
-  }
-}
-
-function secondType(i) {
   if (PokemonValues["types"].length == 2) {
-    let type2 = PokemonValues["types"][1]["type"]["name"];
-    document.getElementById(`type2(${i})`).innerHTML = type2;
-
-    if (type2 == "grass") {
-      document.getElementById(`type2(${i})`).classList.add("grass");
-    }
-
-    if (type2 == "water") {
-      document.getElementById(`type2(${i})`).classList.add("water");
-    }
-
-    if (type2 == "fire") {
-      document.getElementById(`type2(${i})`).classList.add("fire");
-    }
-
-    if (type2 == "poison") {
-      document.getElementById(`type2(${i})`).classList.add("poison");
-    }
-
-    if (type2 == "normal") {
-      document.getElementById(`type2(${i})`).classList.add("normal");
-    }
-
-    if (type2 == "electric") {
-      document.getElementById(`type2(${i})`).classList.add("electro");
-    }
-
-    if (type2 == "flying") {
-      document.getElementById(`type2(${i})`).classList.add("flying");
-    }
-
-    if (type2 == "bug") {
-      document.getElementById(`type2(${i})`).classList.add("bug");
-    }
-
-    if (type2 == "dragon") {
-      document.getElementById(`type2(${i})`).classList.add("dragon");
-    }
-
-    if (type2 == "ice") {
-      document.getElementById(`type2(${i})`).classList.add("ice");
-    }
-
-    if (type2 == "steel") {
-      document.getElementById(`type2(${i})`).classList.add("steel");
-    }
-
-    if (type2 == "rock") {
-      document.getElementById(`type2(${i})`).classList.add("rock");
-    }
-
-    if (type2 == "fairy") {
-      document.getElementById(`type2(${i})`).classList.add("fairy");
-    }
-
-    if (type2 == "psychic") {
-      document.getElementById(`type2(${i})`).classList.add("psy");
-    }
-
-    if (type2 == "ground") {
-      document.getElementById(`type2(${i})`).classList.add("ground");
-    }
-
-    if (type2 == "fighting") {
-      document.getElementById(`type2(${i})`).classList.add("fight");
-    }
+    let typeTwo = PokemonValues["types"][1]["type"]["name"];
+    document.getElementById(`type2(${i})`).classList.add(typeTwo);
+    document.getElementById(`type2(${i})`).innerHTML = typeTwo;
   }
-}
+};
 
-function secondTypeClicked(i) {
+setTypesClicked = (i) => {
+  let typeOne = PokemonValuesClicked["types"][0]["type"]["name"];
+  document.getElementById(`type1-Clicked(${i})`).classList.add(typeOne);
+  document
+    .getElementById(`clickedPokemon-SingleID(${i})`)
+    .classList.add(typeOne);
   if (PokemonValuesClicked["types"].length == 2) {
-    let type2Clicked = PokemonValuesClicked["types"][1]["type"]["name"];
-    document.getElementById(`type2-Clicked(${i})`).innerHTML = type2Clicked;
-
-    if (type2Clicked == "grass") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("grass");
-    }
-
-    if (type2Clicked == "water") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("water");
-    }
-
-    if (type2Clicked == "fire") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("fire");
-    }
-
-    if (type2Clicked == "poison") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("poison");
-    }
-
-    if (type2Clicked == "normal") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("normal");
-    }
-
-    if (type2Clicked == "electric") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("electro");
-    }
-
-    if (type2Clicked == "flying") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("flying");
-    }
-
-    if (type2Clicked == "bug") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("bug");
-    }
-
-    if (type2Clicked == "dragon") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("dragon");
-    }
-
-    if (type2Clicked == "ice") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("ice");
-    }
-
-    if (type2Clicked == "steel") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("steel");
-    }
-
-    if (type2Clicked == "rock") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("rock");
-    }
-
-    if (type2Clicked == "fairy") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("fairy");
-    }
-
-    if (type2Clicked == "psychic") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("psy");
-    }
-
-    if (type2Clicked == "ground") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("ground");
-    }
-
-    if (type2Clicked == "fighting") {
-      document.getElementById(`type2-Clicked(${i})`).classList.add("fight");
-    }
+    let typeTwo = PokemonValuesClicked["types"][1]["type"]["name"];
+    document.getElementById(`type2-Clicked(${i})`).innerHTML = typeTwo;
+    document.getElementById(`type2-Clicked(${i})`).classList.add(typeTwo);
   }
-}
+};
 
 /*
  * * Audio Effects
