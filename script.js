@@ -33,7 +33,7 @@ function loadSinglePokemon(i) {
         <div onclick="showPokemon(${i})" class="singlePokemon-Container" id="singlePokemon(${i})">
             <figure class="singlePokemon-Figure">
                 <img class="singlePokemon-Img" id="pokemonImg(${i})" src="">
-                <span class="singlePokemon-Name" style="font-size: 1.4rem;" id="pokemonName(${i})">test1
+                <span class="singlePokemon-Name" style="font-size: 2rem;" id="pokemonName(${i})">test1
                 </span>
                 <div style="font-size: 1rem;" class="types">
                     <span class="type" id="type1(${i})">
