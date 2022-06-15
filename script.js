@@ -90,7 +90,7 @@ async function showPokemon(i) {
   document.getElementById("clickedPokemon-SectionID").innerHTML = `
             <div id="clickedPokemon-SingleID(${i})" style="display: none;" class="clickedPokemon"">
                 <img id="pokemonImg-Clicked(${i})" src="" class="singlePokemon-Img-Clicked">
-                <span class="backbutton" onclick="closeClickedPokemon()">back</span>
+                <span class="backbutton" onclick="closeClickedPokemon()"><i class="fa-solid fa-backward fa-xl"></i></span>
                 <span id="pokemonName-Clicked(${i})" class="singlePokemon-Name-Clicked">test</span>
                     <div style="font-size: 1.2rem;" class="types-Clicked">
                         <span class="type" id="type1-Clicked(${i})"></span>

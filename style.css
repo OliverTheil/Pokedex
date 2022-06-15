@@ -42,6 +42,7 @@ body {
 }
 
 .searchInput:hover {
+  transition: ease-in-out 200ms;
   background-color: rgba(126, 126, 126, 0.39);
   color: white;
 }
@@ -125,6 +126,7 @@ textarea:focus {
 }
 
 .singlePokemon-Container:hover {
+  transition: ease-in-out 200ms;
   transform: scale(1.1);
   filter: brightness(1.2);
 }
@@ -262,6 +264,7 @@ textarea:focus {
 }
 
 .info-button:hover {
+  transition: ease-in-out 200ms;
   background-color: rgba(122, 122, 122, 0.479);
 }
 
@@ -322,6 +325,7 @@ textarea:focus {
 }
 
 .backbutton:hover {
+  transition: ease-in-out 200ms;
   transform: scale(1.1);
   background-color: rgba(212, 212, 212, 0.137);
   border-radius: 10px;
